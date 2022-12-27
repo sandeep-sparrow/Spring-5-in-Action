@@ -13,8 +13,10 @@ import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.ResultMatcher;
 
-
 @RunWith(SpringRunner.class)
+@RunWith(SpringRunner.class)
+@WebMvcTest()
+
 public class HomeControllerTest {
 
 	@Autowired
