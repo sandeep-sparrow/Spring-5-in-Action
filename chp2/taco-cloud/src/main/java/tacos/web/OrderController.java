@@ -1,4 +1,4 @@
-package tacos.controllers;
+package tacos.web;
 
 
 import org.springframework.stereotype.Controller;
@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
-import tacos.daos.Order;
+import tacos.Order;
 
 @Slf4j
 @Controller

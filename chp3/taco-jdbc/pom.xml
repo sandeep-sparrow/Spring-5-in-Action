@@ -11,12 +11,12 @@
 	</parent>
 	
 	<groupId>sia</groupId>
-	<artifactId>taco-cloud</artifactId>
+	<artifactId>taco-jdbc</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 	
-	<name>taco-cloud</name>
-	<description>Taco Cloud Example</description>
+	<name>taco-jdbc</name>
+	<description>Taco Cloud Example JDBC</description>
 	
 	<properties>
 		<java.version>17</java.version>
@@ -77,6 +77,17 @@
 		    <groupId>org.hibernate</groupId>
 		    <artifactId>hibernate-validator</artifactId>
 		    <version>8.0.0.Final</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-jdbc</artifactId>
+		</dependency>
+		
+		<dependency>
+			<groupId>com.h2database</groupId>
+			<artifactId>h2</artifactId>
+			<scope>runtime</scope>
 		</dependency>
 
     </dependencies>

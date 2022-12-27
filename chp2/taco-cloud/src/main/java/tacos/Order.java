@@ -1,4 +1,4 @@
-package tacos.daos;
+package tacos;
 
 import org.hibernate.validator.constraints.CreditCardNumber;
 
