@@ -6,7 +6,6 @@ import java.util.stream.Collectors;
 
 import javax.validation.Valid;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
@@ -34,7 +33,6 @@ public class DesignTacoController {
 	
 	private TacoRepository designRepo;
 	
-	@Autowired
 	public DesignTacoController(IngredientRepository ingredientRepo,
 			TacoRepository designRepo) {
 		this.ingredientRepo = ingredientRepo;

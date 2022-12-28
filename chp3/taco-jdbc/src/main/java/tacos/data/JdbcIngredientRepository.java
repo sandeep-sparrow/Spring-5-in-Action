@@ -3,7 +3,6 @@ package tacos.data;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
@@ -14,7 +13,6 @@ public class JdbcIngredientRepository implements IngredientRepository {
 
 	private JdbcTemplate jdbc;
 
-	@Autowired
 	public JdbcIngredientRepository(JdbcTemplate jdbc) {
 		this.jdbc = jdbc;
 	}
