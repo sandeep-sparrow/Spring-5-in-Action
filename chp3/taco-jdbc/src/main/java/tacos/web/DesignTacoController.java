@@ -4,6 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import javax.validation.Valid;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
@@ -13,7 +16,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
-import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
 import tacos.Ingredient;
 import tacos.Ingredient.Type;
@@ -32,6 +34,7 @@ public class DesignTacoController {
 	
 	private TacoRepository designRepo;
 	
+	@Autowired
 	public DesignTacoController(IngredientRepository ingredientRepo,
 			TacoRepository designRepo) {
 		this.ingredientRepo = ingredientRepo;
@@ -49,7 +52,7 @@ public class DesignTacoController {
     				filterByType(ingredients, type));
     	}
     	model.addAttribute("design", new Taco());
-    	return "design";
+    	return "design.html";
     }
     
     @ModelAttribute(name="taco")
@@ -67,7 +70,7 @@ public class DesignTacoController {
 			Errors errors, @ModelAttribute Order order) {
 		
 		if(errors.hasErrors()) {
-			return "design";
+			return "design.html";
 		}
 		
 		log.info("Processing design: " + design);

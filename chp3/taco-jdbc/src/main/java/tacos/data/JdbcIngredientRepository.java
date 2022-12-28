@@ -3,6 +3,7 @@ package tacos.data;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
@@ -13,10 +14,12 @@ public class JdbcIngredientRepository implements IngredientRepository {
 
 	private JdbcTemplate jdbc;
 
-	private JdbcIngredientRepository(JdbcTemplate jdbc) {
+	@Autowired
+	public JdbcIngredientRepository(JdbcTemplate jdbc) {
 		this.jdbc = jdbc;
 	}
 	
+	// Reading the h2 data methods
 	@Override
 	public Iterable<Ingredient> findAll() {
 		return jdbc.query("select id, name, type from Ingredient", 
@@ -30,6 +33,7 @@ public class JdbcIngredientRepository implements IngredientRepository {
 				this::mapRowToIngredient, id);
 	}
 
+	// Writing the h2 data method
 	@Override
 	public Ingredient save(Ingredient ingredient) {
 		jdbc.update("insert into Ingredient(id, name, type) values(?,?,?)",
@@ -39,6 +43,7 @@ public class JdbcIngredientRepository implements IngredientRepository {
 		return ingredient;
 	}
 	
+	//Implicit RowMapper Method
 	private Ingredient mapRowToIngredient(ResultSet rs, int rowNum) 
 		throws SQLException {
 			return new Ingredient(
