@@ -36,7 +36,7 @@ public class JdbcIngredientRepository implements IngredientRepository {
 	// Writing the h2 data method
 	@Override
 	public Ingredient save(Ingredient ingredient) {
-		jdbc.update("insert into Ingredient(id, name, type) values(?,?,?)",
+		jdbc.update("insert into Ingredient(id, name, type) values(?, ?, ?)",
 				ingredient.getId(),
 				ingredient.getName(),
 				ingredient.getType());

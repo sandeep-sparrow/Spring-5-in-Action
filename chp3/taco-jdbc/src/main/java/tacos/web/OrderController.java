@@ -29,11 +29,9 @@ public class OrderController {
 	}
 	
 	@GetMapping("/current")
-	public String orderForm(Model model) {
+	public String orderForm() {
 		
-		model.addAttribute("order", new Order());
-		
-		return "orderForm.html";
+		return "orderForm";
 		
 	}
 	
@@ -42,7 +40,7 @@ public class OrderController {
 			Errors errors, SessionStatus sessionStatus) {
 		
 		if(errors.hasErrors()) {
-			return "orderForm.html";
+			return "orderForm";
 		}
 		
 		log.info("Order Submitted: " + order);

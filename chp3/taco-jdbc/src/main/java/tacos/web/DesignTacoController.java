@@ -51,8 +51,8 @@ public class DesignTacoController {
     		model.addAttribute(type.toString().toLowerCase(), 
     				filterByType(ingredients, type));
     	}
-    	model.addAttribute("design", new Taco());
-    	return "design.html";
+
+    	return "design";
     }
     
     @ModelAttribute(name="taco")
@@ -70,7 +70,7 @@ public class DesignTacoController {
 			Errors errors, @ModelAttribute Order order) {
 		
 		if(errors.hasErrors()) {
-			return "design.html";
+			return "design";
 		}
 		
 		log.info("Processing design: " + design);
