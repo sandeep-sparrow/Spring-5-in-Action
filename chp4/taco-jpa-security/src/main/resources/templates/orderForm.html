@@ -3,7 +3,7 @@
       xmlns:th="http://www.thymeleaf.org">
 
 	 <head>
-	   <title>Taco Cloud</title>
+	   <title>Order Taco Cloud</title>
 	   <link type="image/png" sizes="16x16" rel="icon" 
 	       th:href="@{../TacoDesign.png}">
 	   <link rel="stylesheet" th:href="@{/styles.css}" />
@@ -90,7 +90,11 @@
 			<input type="submit" value="Submit Order"/>
 			
 		</form>
-	
+	  	<br/>
+		
+	   	<form method="POST" th:action="@{/logout}">
+	   		<input type="submit" value="logout"/>
+	   	</form>
 	</body>
 	
 </html>

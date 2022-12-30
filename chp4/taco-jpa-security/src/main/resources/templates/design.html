@@ -3,14 +3,13 @@
       xmlns:th="http://www.thymeleaf.org">
       
 	 <head>
-	   <title>Taco Cloud</title>
+	   <title>Design Taco Cloud</title>
 	   <link type="image/png" sizes="16x16" rel="icon" 
 	       href="TacoDesign.png">
 	   <link rel="stylesheet" th:href="@{/styles.css}" />
 	 </head>
 
 	<body>
-	
 	  <h1>Design your taco!</h1>
 	  <img th:src="TacoCloud.png"/>
 	
@@ -75,10 +74,16 @@
    		  <br><br/>
    		  
    		  <button>Submit your taco</button>	
+		
        </div>
 	       
+
 	  </form>
-	  
+	  <br/>
+		
+	   <form method="POST" th:action="@{/logout}">
+	   		<input type="submit" value="logout"/>
+	   </form>
 	</body>
   
 </html>
