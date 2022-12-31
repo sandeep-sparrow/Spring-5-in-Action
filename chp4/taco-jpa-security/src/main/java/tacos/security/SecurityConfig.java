@@ -39,12 +39,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		  http
 		  	.authorizeRequests()
 		  		.antMatchers("/design","/orders")
-		  			.hasRole("USER")
+		  			.access("hasRole('ROLE_USER')")
 		  		.antMatchers("/","/**").access("permitAll")
 		  	.and()
 		  		.formLogin()
 		  		.loginPage("/login")
-		  		.defaultSuccessUrl("/design", true)
 		  	.and()
 		  		.logout()
 		  			.logoutSuccessUrl("/")

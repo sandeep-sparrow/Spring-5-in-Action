@@ -27,3 +27,7 @@ div.ingredient-group {
 span.validationError {
 	color: red;
 }
+
+div.invalidCredentials{
+	color: red;
+}

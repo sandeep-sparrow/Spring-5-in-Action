@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -19,6 +20,7 @@ import lombok.RequiredArgsConstructor;
 
 @Entity
 @Data
+@Table(name="Users")
 @NoArgsConstructor(access=AccessLevel.PRIVATE, force=true)
 @RequiredArgsConstructor
 public class User implements UserDetails {
@@ -28,6 +30,7 @@ public class User implements UserDetails {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private long id;
+	
 	private final String username;
 	private final String password;
 	private final String fullname;
@@ -35,7 +38,7 @@ public class User implements UserDetails {
 	private final String city;
 	private final String state;
 	private final String zip;
-	private final String phoneNumber;
+	private final String phonenumber;
 	
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
