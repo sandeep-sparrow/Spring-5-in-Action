@@ -23,11 +23,12 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class User implements UserDetails {
 
+	private static final long serialVersionUID = 1L;
+
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private static final long serialVersionUID = 1L;
-	
 	private long id;
+	
 	private final String username;
 	private final String password;
 	private final String fullname;
