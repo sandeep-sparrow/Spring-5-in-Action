@@ -26,6 +26,8 @@ import lombok.Data;
 @Table(name="Taco_Order")
 public class Order implements Serializable {
 
+	private static final long serialVersionUID = 1L;
+
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private long id;

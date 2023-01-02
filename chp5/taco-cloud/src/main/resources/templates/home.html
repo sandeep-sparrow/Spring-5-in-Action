@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:th="http://www.thymeleaf.org">
+	  
+	<head>
+		<meta charset="ISO-8859-1">
+		<title>Home Cloud Taco</title>
+		<link type="image/png" sizes="16x16" rel="icon" 
+	       href="TacoLogo.png">
+	</head>
+
+	<body>
+	    <h1>Welcome to Taco Cloud...</h1>
+	    <img th:src="TacoCloud.png"/>
+	    <form method="POST" th:action="@{/logout}" id="logoutForm">
+	      	<input type="submit" value="Logout"/>
+	    </form>
+	    
+	    <br>
+	    
+	    <a th:href="@{/design}" id="design">Design a taco</a>
+	    
+        <div th:if="${param.logout != null}">
+            <div>
+                You have been logged out.
+            </div>
+        </div>
+	</body>
+
+</html>

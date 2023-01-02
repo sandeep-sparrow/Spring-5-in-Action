@@ -1,12 +1,10 @@
 package tacos.web;
 
-
-import java.security.Principal;
-
 import javax.validation.Valid;
 
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -18,7 +16,6 @@ import lombok.extern.slf4j.Slf4j;
 import tacos.Order;
 import tacos.User;
 import tacos.data.OrderRepository;
-import tacos.data.UserRepository;
 
 @Slf4j
 @Controller
@@ -27,11 +24,9 @@ import tacos.data.UserRepository;
 public class OrderController {
 	
 	private OrderRepository orderRepo;
-	private UserRepository userRepo;
 	
-	public OrderController(OrderRepository orderRepo, UserRepository userRepo) {
+	public OrderController(OrderRepository orderRepo) {
 		this.orderRepo = orderRepo;
-		this.userRepo = userRepo;
 	}
 	
 	@GetMapping("/current")
@@ -57,6 +52,16 @@ public class OrderController {
 		sessionStatus.setComplete();
 		
 		return "redirect:/";
+		
+	}
+	
+	@GetMapping
+	public String ordersForUser(@AuthenticationPrincipal User user, Model model) {
+		
+		model.addAttribute("orders", orderRepo.findByUserOrderByPlacedAtDesc(user));
+		
+		return "orderList";
+			
 		
 	}
 

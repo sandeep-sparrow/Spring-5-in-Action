@@ -11,12 +11,12 @@
 	</parent>
 	
 	<groupId>sia</groupId>
-	<artifactId>taco-jpa-security</artifactId>
+	<artifactId>taco-cloud-security</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 	
-	<name>taco-jpa-security</name>
-	<description>Secure Taco Cloud JPA</description>
+	<name>taco-cloud-security</name>
+	<description>Secure Taco Cloud</description>
 	
 	<properties>
 		<java.version>1.8</java.version>

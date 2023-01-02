@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" 
+      xmlns:th="http://www.thymeleaf.org">
+      
+	<head>
+		<meta charset="ISO-8859-1">
+		<title>Login Taco Cloud</title>
+		<link type="image/png" sizes="16x16" rel="icon" 
+	       href="TacoLogo.png">
+	    <link rel="stylesheet" th:href="@{/styles.css}" />
+	</head>
+	
+	<body>
+		<h1>Login</h1>
+		<img th:src="TacoCloud.png"/>
+		
+        <div class="invalidCredentials" th:if="${param.error != null}">
+            Unable to login. Check your username and password.
+            <div th:if="${SPRING_SECURITY_LAST_EXCEPTION != null}">
+              Reason: <span th:text="${SPRING_SECURITY_LAST_EXCEPTION.message}"></span> 
+            </div>
+        </div>
+        
+		<p>New here > Click
+			<a th:href="@{/register}">here</a> to register.</p>
+	        
+		<form method="POST" th:action="@{/login}" id="loginForm">
+			
+			<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+			<label for="username">Username: </label>
+			<input type="text" name="username" id="username"/><br/>
+			
+			<br>
+			
+			<label for="password">Password: </label>
+			<input type="text" name="password" id="password"/><br/>
+			
+			<br>
+			
+			<input type="submit" value="Login"/>
+		</form>
+	</body>
+	
+</html>
