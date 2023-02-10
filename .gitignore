@@ -33,3 +33,8 @@ build/
 .vscode/
 
 *.prefs
+*.log
+*.ser
+*.setup
+*.dat
+*.tree
