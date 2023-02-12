@@ -1,0 +1,27 @@
+logging:
+  file:
+    path: classpath:TacoCloud.log
+  level: 
+    tacos: WARN
+          
+server:
+  port: 8080
+spring:
+  datasource:
+    url: jdbc:h2:mem:testdb
+  h2:
+    console:
+      enabled: true
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    defer-datasource-initialization: true
+  thymeleaf:
+    check-template: true
+    check-template-location: true
+    enabled: true
+    prefix: classpath:/templates/
+    suffix: .html
+    
+taco:
+  orders:
+    pageSize: 5
