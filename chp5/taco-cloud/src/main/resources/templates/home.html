@@ -11,11 +11,17 @@
 
 	<body>
 	    <h1>Welcome to Taco Cloud...</h1>
-	    <img th:src="TacoCloud.png"/>
-	    <form method="POST" th:action="@{/logout}" id="logoutForm">
-	      	<input type="submit" value="Logout"/>
-	    </form>
 	    
+	    <img th:src="TacoCloud.png"/>
+	    
+	   	<div style="display: flex; justify-content: centre;">
+	   		<a th:href="@{/login}" id="login"><button>login</button></a>
+	   		&nbsp;
+		   	<form method="POST" th:action="@{/logout}" id="logoutForm">
+		      	<input type="submit" value="Logout"/>
+		    </form>
+		</div>
+
 	    <br>
 	    
 	    <a th:href="@{/design}" id="design">Design a taco</a>
