@@ -29,8 +29,9 @@ public class OrderController {
 	
 	private OrderRepository orderRepo;
 	
-	public OrderController(OrderRepository orderRepo) {
+	public OrderController(OrderRepository orderRepo, OrderProps orderProps) {
 		this.orderRepo = orderRepo;
+		this.orderProps = orderProps;
 	}
 	
 	@GetMapping("/current")
@@ -59,7 +60,7 @@ public class OrderController {
 		
 	}
 	
-	@GetMapping
+	@GetMapping("/orders/recent")
 	public String ordersForUser(@AuthenticationPrincipal User user, Model model) {
 
 		PageRequest pageable = PageRequest.of(0, orderProps.getPageSize());
